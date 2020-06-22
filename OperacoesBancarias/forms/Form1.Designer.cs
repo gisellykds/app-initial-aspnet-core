@@ -1,4 +1,4 @@
-﻿namespace OperacoesBancarias
+﻿namespace OperacoesBancarias.forms
 {
     partial class FormCreateClienteAccount
     {

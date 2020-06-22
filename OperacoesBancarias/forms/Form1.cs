@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace OperacoesBancarias
+namespace OperacoesBancarias.forms
 {
     public partial class FormCreateClienteAccount : Form
     {
@@ -64,14 +64,13 @@ namespace OperacoesBancarias
         //METODO DE MENSAGEM APÓS CADASTRO DO CLIENTE
         private void createClienteForm()
         {
-            MessageBox.Show(getClienteNomeCpf(createCliente()));
+            MessageBox.Show(getClienteCpf(createCliente()));
         }
 
-        //RETORNA O NOME E CPF DO CLIENTE CADASTRADO
-        private string getClienteNomeCpf(Cliente cliente)
+        //RETORNA O CPF DO CLIENTE CADASTRADO
+        private string getClienteCpf(Cliente cliente)
         {
-            return "Cliente cadastrado com sucesso! " +
-                              "\nNome: " + cliente.Nome + " CPF: " + cliente.Cpf; ;
+            return ($"CPF: {cliente.Cpf}");
         }
 
         //METODO DE LIMPAR CAMPOS
