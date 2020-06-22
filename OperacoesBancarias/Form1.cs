@@ -12,14 +12,14 @@ using System.Windows.Forms;
 
 namespace OperacoesBancarias
 {
-    public partial class Form1 : Form
+    public partial class FormCreateClienteAccount : Form
     {
-        public Form1()
+        public FormCreateClienteAccount()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void FormCreateClienteAccount_Load(object sender, EventArgs e)
         {
 
         }
@@ -29,16 +29,14 @@ namespace OperacoesBancarias
             
         }
 
+        //METODO SUBMIT 
         private void button1_Click(object sender, EventArgs e)
         {
             groupBox1_Enter(sender, e);
-            Cliente cliente = createCliente();
-            string retornoCliente = getClienteNomeCpf(cliente);
-            MessageBox.Show("Cliente cadastrado com sucesso!" + retornoCliente);
-
-            clearFull();
+            verificaSeOsCamposForamPreenchidosECadastra();
         }
 
+        //METODO LIMPAR CAMPOS
         public void clearFull()
         {
             textBox1.Text = "";
@@ -47,6 +45,7 @@ namespace OperacoesBancarias
             textBox4.Text = ""; 
         }
 
+        //METODO CRIAR CLIENTE A PARTIR DOS TEXTBOXS
         private Cliente createCliente()
         {
                 Cliente cliente = new Cliente();
@@ -62,16 +61,41 @@ namespace OperacoesBancarias
                 return cliente;
         }
 
-        private string getClienteNomeCpf(Cliente cliente)
+        //METODO DE MENSAGEM APÓS CADASTRO DO CLIENTE
+        private void createClienteForm()
         {
-            string retorno = "\n Nome: "+ cliente.Nome + " CPF: " + cliente.Cpf;
-
-            return retorno;
+            MessageBox.Show(getClienteNomeCpf(createCliente()));
         }
 
+        //RETORNA O NOME E CPF DO CLIENTE CADASTRADO
+        private string getClienteNomeCpf(Cliente cliente)
+        {
+            return "Cliente cadastrado com sucesso! " +
+                              "\nNome: " + cliente.Nome + " CPF: " + cliente.Cpf; ;
+        }
+
+        //METODO DE LIMPAR CAMPOS
         private void button2_Click(object sender, EventArgs e)
         {
             clearFull();
+        }
+
+        // METODO DE VERIFICAÇAO CAMPOS NULOS OU EM BRANCO, E CADASTRO
+        private void verificaSeOsCamposForamPreenchidosECadastra()
+        {
+            if (
+                (textBox1.Text != null && textBox1.Text != "") &&
+                (textBox2.Text != null && textBox2.Text != "") &&
+                (textBox3.Text != null && textBox3.Text != "") &&
+                (textBox4.Text != null && textBox4.Text != ""))
+            {
+                createClienteForm();
+                clearFull();
+            }
+            else
+            {
+                MessageBox.Show("Todos os campos devem ser previamente preenchidos!");
+            }
         }
     }
 }
