@@ -7,6 +7,6 @@ namespace ConsoleApplicationBeautySalon.FakeDatabase.Interfaces
     {
         public void Save(Customer customer);
         public List<Customer> FindAll();
-        public Customer FindById(string Cpf);
+        public Customer FindById(string cpf);
     }
 }

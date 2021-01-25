@@ -1,9 +1,4 @@
-﻿using ConsoleApplicationBeautySalon.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ConsoleApplicationBeautySalon.Services.Interfaces
+﻿namespace ConsoleApplicationBeautySalon.Services.Interfaces
 {
     interface ICustomerService
     {

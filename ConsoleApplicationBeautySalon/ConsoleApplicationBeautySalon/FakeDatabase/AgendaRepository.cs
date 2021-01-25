@@ -37,11 +37,11 @@ namespace ConsoleApplicationBeautySalon.FakeDatabase
             return null;
         }
 
-        public Agenda FindById(long Id)
+        public Agenda FindById(long id)
         {
             foreach (Agenda agenda in agendas)
             {
-                if (agenda.Id == Id)
+                if (agenda.Id == id)
                     return agenda;
             }
             return null;

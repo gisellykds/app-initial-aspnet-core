@@ -1,5 +1,4 @@
-﻿using ConsoleApplicationBeautySalon.Entities;
-using ConsoleApplicationBeautySalon.Services;
+﻿using ConsoleApplicationBeautySalon.Services;
 using ConsoleApplicationBeautySalon.Services.Interfaces;
 using System;
 

@@ -74,7 +74,7 @@ namespace ConsoleApplicationBeautySalon.Services
             string line = Environment.NewLine;
 
             Console.WriteLine("Informe o CPF:");
-            string CPF = Console.ReadLine();
+            string cpf = Console.ReadLine();
 
             Console.WriteLine(line + "Informe o nome: ");
             string nome = Console.ReadLine();
@@ -85,7 +85,7 @@ namespace ConsoleApplicationBeautySalon.Services
             Console.WriteLine(line + "Informe um email para contato: ");
             string email = Console.ReadLine();
 
-            return new Customer(CPF, nome, phone, email);
+            return new Customer(cpf, nome, phone, email);
         }
 
         private void WriteOutputForConsole(Customer customer)

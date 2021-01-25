@@ -4,7 +4,6 @@ using ConsoleApplicationBeautySalon.FakeDatabase.Interfaces;
 using ConsoleApplicationBeautySalon.Services.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace ConsoleApplicationBeautySalon.Services
 {
@@ -108,16 +107,14 @@ namespace ConsoleApplicationBeautySalon.Services
         {
             Console.WriteLine("Informe o ID para consulta:");
             string id = Console.ReadLine();
-            long numero = 0;
-
-            return long.TryParse(id, out numero) ? long.Parse(id) : 0;
+            long numero;
+            return long.TryParse(id, out numero) ? long.Parse(id) : numero;
         }
 
         private DateTime ReadInputsForFindAgendaDate()
         {
             Console.WriteLine("Informe a data para consulta: (Formato: MM/DD/AAAA)");
-            string date = Console.ReadLine();
-            return DateTime.Parse(date);
+            return DateTime.Parse(Console.ReadLine());
         }
 
         private void WriteOutputForConsole(Agenda agenda)
@@ -129,6 +126,5 @@ namespace ConsoleApplicationBeautySalon.Services
         {
             return agendaRepository.FindByDateTime(date) == null;
         }
-
     }
 }

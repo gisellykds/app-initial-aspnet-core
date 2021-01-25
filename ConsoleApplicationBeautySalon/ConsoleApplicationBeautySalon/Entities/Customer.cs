@@ -8,33 +8,28 @@ namespace ConsoleApplicationBeautySalon.Entities
         public string Name { get; set; }
         public string CellPhone { get; set; }
         public string Email { get; set; }
-        public DateTime DataRegistration { get;}
-        
-        public Customer()
-        {
+        public DateTime DataRegistration { get; set; }
 
+        public Customer(string cpf, string name, string cellPhone, string email)
+        {
+            CPF = cpf;
+            Name = name;
+            CellPhone = String.IsNullOrEmpty(cellPhone) ? "NÃO INFORMADO" : cellPhone;
+            Email = String.IsNullOrEmpty(email) ? "NÃO INFORMADO" : email;
+            DataRegistration = DateTime.Now;
         }
 
-        public Customer(string Cpf, string Name, string CellPhone, string Email)
+        public Customer(string cpf)
         {
-            this.CPF = Cpf; 
-            this.Name = Name; 
-            this.CellPhone = (CellPhone == "" || CellPhone == null) ? "NÃO INFORMADO" : CellPhone;
-            this.Email = (Email == "" || Email == null) ? "NÃO INFORMADO" : Email; 
-            this.DataRegistration = DateTime.Now;
+            CPF = cpf;
         }
 
-        public Customer(string idUser)
-        {
-            this.CPF = idUser;
-        }
-
-        public string ToString() => 
-              "CPF: " + this.CPF 
-            + " Nome: " + this.Name 
-            + " Telefone/Celular " + this.CellPhone 
-            + " Email: " + this.Email 
-            + " Registrado em: " + this.DataRegistration.ToString("MM/dd/YYYY");
+        public override string ToString() =>
+              "CPF: " + CPF
+            + " Nome: " + Name
+            + " Telefone/Celular " + CellPhone
+            + " Email: " + Email
+            + " Registrado em: " + DataRegistration.ToString("MM/dd/YYYY");
     }
 
 }

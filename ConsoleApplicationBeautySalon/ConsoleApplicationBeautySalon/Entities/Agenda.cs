@@ -12,25 +12,20 @@ namespace ConsoleApplicationBeautySalon.Entities
         public DateTime DateTime { get; set; }
         public string Note { get; set; }
     
-        public Agenda()
+        public Agenda(string idCustomer, string idProduct, string date, string time, string note)
         {
-
+            IdCustomer = new Customer(idCustomer);
+            IdProduct = ProductTypeEnum.GetDescription(idProduct);
+            DateTime = DateTime.Parse(date + " " + time);
+            Note = String.IsNullOrEmpty(note) ? "NÃO INFORMADO" : note; 
         }
 
-        public Agenda(string IdCustomer, string IdProduct, string Date, string Time, string Note)
-        {
-            this.IdCustomer = new Customer(IdCustomer);
-            this.IdProduct = ProductTypeEnum.GetDescription(IdProduct);
-            this.DateTime = DateTime.Parse(Date + " " + Time);
-            this.Note = (Note == "" || Note == null) ? "NÃO INFORMADO" : Note; 
-        }
-
-        public string ToString() =>
-            "ID: " + this.Id
-          + " CPF Cliente : " + this.IdCustomer.CPF
-          + " Produto: " + this.IdProduct
-          + " Data e Hora: " + this.DateTime.ToString()
-          + " Observações : " + this.Note;
+        public override string ToString() =>
+            "ID: " + Id
+          + " CPF Cliente : " + IdCustomer.CPF
+          + " Produto: " + IdProduct
+          + " Data e Hora: " + DateTime.ToString()
+          + " Observações : " + Note;
     }
 
 }

@@ -14,11 +14,11 @@ namespace ConsoleApplicationBeautySalon.FakeDatabase
             return customers;
         }
 
-        public Customer FindById(string Cpf)
+        public Customer FindById(string cpf)
         {
             foreach (Customer user in customers)
             {
-                if (user.CPF.Equals(Cpf))
+                if (user.CPF.Equals(cpf))
                     return user;
             }
             return null;
